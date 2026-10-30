@@ -21,8 +21,8 @@ Dataset
 
 Chinook Database
 
-[https://github.com/lerocha/chinook-database
-]
+[Chinook Database](https://github.com/lerocha/chinook-database
+)
 
 The Chinook database contains information about a digital music store, including artists, albums, tracks, genres, customers, and sales records.
 
