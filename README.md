@@ -1,10 +1,10 @@
-Chinook Music Store Analysis
+# Chinook Music Store Analysis
 
-Project Summary
+## Project Summary
 
 In this project, I used SQL to analyse the Chinook music store database and answer questions about artists, albums, music genres, and track sales. I wanted to understand which genres generate the most revenue and what factors might explain the differences in their sales performance.
 
-Business Questions
+## Business Questions
 
 1. Which artists have recorded at least one album?
 2. Which artists have no recorded album?
@@ -30,7 +30,7 @@ Tools Used
 
 - PostgreSQL
 
-###Which artists have at least one recorded album?
+### Which artists have at least one recorded album?
 ```sql
 SELECT DISTINCT
        ar.name
@@ -38,25 +38,28 @@ FROM artist ar
 INNER JOIN album ab
    ON ar.artist_id=ab.artist_id;
 ```
---Which artists have no recorded album?
+### Which artists have no recorded album?
+```sql
 SELECT DISTINCT
        ar.name
 FROM artist ar
 LEFT JOIN album ab
    ON ar.artist_id=ab.artist_id
 WHERE ab.artist_id IS NULL;
+```
 
-
---Which artists have no recorded album?
+### Which artists have no recorded album?
+```sql
 SELECT DISTINCT
        ar.name
 FROM album ab
 RIGHT JOIN artist ar
    ON ab.artist_id=ar.artist_id
 WHERE ab.artist_id IS NULL;
-   
+```  
 
---which Artists have recorded more than one album?
+### which Artists have recorded more than one album?
+```sql
 SELECT DISTINCT
        ar.name
 FROM artist ar
@@ -64,8 +67,10 @@ INNER JOIN album ab
    ON ar.artist_id=ab.artist_id
 GROUP BY ar.artist_id,ab.artist_id,ar.name,ab.title
 HAVING ab.artist_id > 1;
+```
 
---Which genres generate the most revenue?
+### Which genres generate the most revenue?
+```sql
 SELECT g.name AS genre_name,
        SUM(il.unit_price*il.quantity) AS total_revenue,
 	   ROUND(SUM(il.unit_price*il.quantity)*100.0/SUM(SUM(il.unit_price*il.quantity))
@@ -78,8 +83,10 @@ JOIN genre g
 GROUP BY g.genre_id, g.name
 ORDER BY total_revenue DESC
 LIMIT 20;
+```
 
---Which genres sells in the highest quantities?
+### Which genres sells in the highest quantities?
+```sql
 SELECT g.name AS genre_name,
        SUM(il.quantity) AS total_quantity,
 	   ROUND(SUM(il.quantity)*100.0/SUM(SUM(il.quantity))
@@ -91,8 +98,10 @@ JOIN genre g
    ON t.genre_id=g.genre_id
 GROUP BY g.genre_id, g.name
 ORDER BY total_quantity DESC;
+```
 
---Which genres generate the highest total sales value?
+### Which genres generate the highest total sales value?
+```sql
 SELECT g.name AS genre_name,
        SUM(il.unit_price) AS total_price,
 	   ROUND(SUM(il.unit_price)*100.0/SUM(SUM(il.unit_price)) OVER (),2) AS percentage
@@ -103,8 +112,10 @@ JOIN genre g
    ON t.genre_id=g.genre_id
 GROUP BY g.genre_id, g.name
 ORDER BY total_price DESC;
+```
 
---Which tracks generate the most revenue within each of the four top-performing genres?
+### Which tracks generate the most revenue within each of the four top-performing genres?
+```sql
 SELECT g.name AS genre_name,
        t.name AS track_name,
 	   SUM(il.unit_price*il.quantity) AS total_revenue,
@@ -118,8 +129,10 @@ ON t.track_id=il.track_id
 WHERE g.name IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk' )
 GROUP BY g.name, t.track_id, t.name
 ORDER BY total_revenue DESC;
+```
 
-----Which tracks generate the most revenue within the other genres?
+### Which tracks generate the most revenue within the other genres?
+```sql
 SELECT g.name AS genre_name,
        t.name AS track_name,
 	   SUM(il.unit_price*il.quantity) AS total_revenue,
@@ -133,21 +146,25 @@ ON t.track_id=il.track_id
 WHERE g.name NOT IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk' )
 GROUP BY g.name, t.track_id, t.name
 ORDER BY total_revenue DESC;
+```
 
---How many tracks are available in the four top performing genres
+### How many tracks are available in the four top performing genres
+```sql
 SELECT COUNT(t.name)
 FROM genre g
 JOIN track t
 ON g.genre_id=t.genre_id
 WHERE g.name IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk');
+```
 
---How many tracks are available in the other genres
+### How many tracks are available in the other genres
+```sql
 SELECT COUNT(t.name)
 FROM genre g
 JOIN track t
 ON g.genre_id=t.genre_id
 WHERE g.name NOT IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk');
-
+```
 
 
 Key Findings and Insights
