@@ -258,6 +258,7 @@ INNER JOIN album ab
 | Yehudi Menuhin                                                                        |
 | English Concert & Trevor Pinnock                                                      |
 | Alberto Turco & Nova Schola Gregoriana                                                |
+
 204 artists have recorded at least one album.
 
 ### 2. Artists Who Have No Recorded Album
@@ -608,6 +609,7 @@ LIMIT 20;
 | Alternative        | 13.86         | 0.60       |
 | World              | 12.87         | 0.55       |
 | Science Fiction    | 11.94         | 0.51       |
+
 Revenue is concentrated among four of the 20 music genres. These genres play a significant role in the store's revenue performance.
 
 ### 5. Quantity Sold by Genre
@@ -2732,6 +2734,7 @@ WHERE g.name IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk');
 | count |
 |-------|
 | 2582  |
+
 The four leading genres contain 2,582 tracks, while the other genres contain 921 tracks. This shows that the leading genres make up a larger share of the store's music catalogue, which may help explain their strong revenue contribution.
 
 ### 10. Number of Tracks in the Other Genres
@@ -2745,6 +2748,7 @@ WHERE g.name NOT IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk');
 | count |
 |-------|
 | 921   |
+
 The other genres contain 921 tracks, compared with 2,582 tracks in the four leading genres. This shows that fewer tracks are available across the other genres.
 
 
