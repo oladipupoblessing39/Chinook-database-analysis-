@@ -2235,8 +2235,6 @@ ORDER BY total_revenue DESC;
 | Latin              | A Cura                                                                                                                      | 0.99          | 0.06       |
 | Rock               | Stairway To Heaven                                                                                                          | 0.99          | 0.06       |
 
-Some tracks within the other genres recorded higher individual revenue than tracks within the four leading genres. Despite this, the four leading genres generated more total revenue. This led me to investigate the number of tracks available in the top-performing genres compared with the other genres.
-
 ### 8. Top Tracks in the Other Genres
 ```sql
 SELECT g.name AS genre_name,
@@ -2721,7 +2719,7 @@ ORDER BY total_revenue DESC;
 | Blues             | Tightrope                                                                                                     | 0.99          | 0.16       |
 | Soundtrack        | Assum Preto                                                                                                   | 0.99          | 0.16       |
 
-Some tracks within the other genres recorded higher individual revenue values. However, this did not change the overall finding that the four leading genres generated more total revenue.
+Some tracks within the other genres recorded higher individual revenue than tracks within the four leading genres. Despite this, the four leading genres generated more total revenue. This led me to investigate the number of tracks available in the top-performing genres compared with the other genres.
 
 ### 9. Number of Tracks in the Four Leading Genres
 ```sql
