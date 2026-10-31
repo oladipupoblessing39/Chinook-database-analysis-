@@ -33,7 +33,7 @@ Tools Used
 ### Which artists have at least one recorded album?
 ```sql
 SELECT DISTINCT
-       ar.name
+      ar.name AS artist_name
 FROM artist ar
 INNER JOIN album ab
    ON ar.artist_id=ab.artist_id;
@@ -41,7 +41,7 @@ INNER JOIN album ab
 ### Which artists have no recorded album?
 ```sql
 SELECT DISTINCT
-       ar.name
+       ar.name AS artist_name
 FROM artist ar
 LEFT JOIN album ab
    ON ar.artist_id=ab.artist_id
@@ -51,7 +51,7 @@ WHERE ab.artist_id IS NULL;
 ### Which artists have no recorded album?
 ```sql
 SELECT DISTINCT
-       ar.name
+      ar.name AS artist_name
 FROM album ab
 RIGHT JOIN artist ar
    ON ab.artist_id=ar.artist_id
@@ -61,7 +61,7 @@ WHERE ab.artist_id IS NULL;
 ### which Artists have recorded more than one album?
 ```sql
 SELECT DISTINCT
-       ar.name
+       ar.name AS artist_name
 FROM artist ar
 INNER JOIN album ab
    ON ar.artist_id=ab.artist_id
