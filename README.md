@@ -165,7 +165,33 @@ JOIN track t
 ON g.genre_id=t.genre_id
 WHERE g.name NOT IN ('Rock', 'Latin', 'Metal', 'Alternative & Punk');
 ```
+1. Artists Who Have Recorded at Least One Album
 
+204 artists have recorded at least one album.
+
+2. Artists Who Have No Recorded Album
+
+71 artists have no recorded album. This means quite a number of artists in the database have no recorded albums.
+
+3. Artists Who Have Recorded More Than One Album
+
+203 artists have recorded more than one album. Only one artist has recorded just one album.
+
+4. Revenue by Genre
+
+Revenue is concentrated among four of the 20 music genres. These genres play a significant role in the store's revenue performance.
+
+5. Quantity Sold and Total Sales Value
+
+The four leading genres account for 77.19% of the total quantity sold and 73.50% of total sales value. This helps explain why they are the top revenue-generating genres.
+
+6. Track Revenue Comparison
+
+Some tracks within the other genres recorded higher individual revenue than tracks within the four leading genres. Despite this, the four leading genres generated more total revenue. This led me to investigate the number of tracks available in the top-performing genres compared with the other genres.
+
+7. Number of Tracks by Genre Group
+
+The four leading genres contain 2,582 tracks, while the other genres contain 921 tracks. This shows that the leading genres make up a larger share of the store's music catalogue, which may help explain their strong revenue contribution.
 
 Key Findings and Insights
 
